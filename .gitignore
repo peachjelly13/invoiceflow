@@ -3,3 +3,9 @@
 .python-version
 uv.lock
 .env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.py[cod]
