@@ -4,7 +4,7 @@ class Settings(BaseSettings):
     #App
     APP_NAME: str
     APP_ENV: str = "development"
-    DEBUG: bool = True
+    DEBUG: bool = True  #Set This False for production
     SECRET_KEY: str
 
     # PostgreSQL
