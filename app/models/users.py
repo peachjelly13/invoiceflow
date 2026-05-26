@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import String,Enum as SQAEnum,DateTime
 from sqlalchemy.orm import Mapped,mapped_column
 from sqlalchemy.dialects.postgresql import UUID
-from app.db.base import Base
+from app.db.base import Base,TimestampMixin
 import enum
 
 #These are the only user roles allowed in our system
@@ -13,7 +13,7 @@ class UserRole(enum.Enum):
     FINANCE_MANAGER = "finance_manager"
     VENDOR = "vendor"
 
-class User(Base):
+class User(Base, TimestampMixin):
     __tablename__ ="users"
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -37,20 +37,8 @@ class User(Base):
     role:Mapped[UserRole]=mapped_column(
         SQAEnum(UserRole),
         nullable=False
-
     )
-    created_at:Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
-        nullable=False
-
-    )
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow,
-        nullable=False
-    )
+    
 
      
 
