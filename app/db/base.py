@@ -1,6 +1,8 @@
 from datetime import datetime, timezone
 from sqlalchemy import Column, DateTime, event
-from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase,Mapped,mapped_column
+import uuid
+from sqlalchemy.dialects.postgresql import UUID
 
 
 class Base(DeclarativeBase):
@@ -33,3 +35,13 @@ class TimestampMixin:
     def __declare_last__(cls):
         """Registers the before_update event for this model."""
         event.listen(cls, "before_update", cls._updated_at)
+
+
+class PrimaryKeyMixin:
+    """Adds an auto-incrementing primary key to any model."""
+
+    id:Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        primary_key=True,
+        default=uuid.uuid4
+    )
