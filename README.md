@@ -16,6 +16,7 @@ Run specific tests:
 uv run pytest tests/models/test_user.py -v
 uv run pytest tests/models/test_vendor.py -v
 uv run pytest tests/models/test_purchase_order.py -v
+uv run pytest tests/models/test_invoice.py -v
 ```
 
 
