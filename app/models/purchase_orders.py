@@ -55,10 +55,5 @@ class PurchaseOrder(Base, TimestampMixin, PrimaryKeyMixin):
         nullable=False,
         index=True
     )
-    authorized_by: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
-        ForeignKey("users.id"),
-        nullable=False,
-        index=True
-    )
+    
 
