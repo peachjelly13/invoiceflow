@@ -29,3 +29,7 @@ def test_vendor_user_mapping_creation():
     assert mapping.vendor_id is not None
     assert mapping.user_id is not None
     assert mapping.is_active == True
+
+if __name__ == "__main__":
+    test_vendor_creation()
+    test_vendor_user_mapping_creation()

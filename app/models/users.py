@@ -14,7 +14,7 @@ class UserRole(enum.Enum):
     VENDOR = "vendor"
 
 class User(Base, TimestampMixin,PrimaryKeyMixin):
-    __tablename__ ="users"
+    __tablename__ = "users"
     email:Mapped[str] = mapped_column(
         String(255),
         unique=True,

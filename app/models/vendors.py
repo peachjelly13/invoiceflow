@@ -8,7 +8,7 @@ from datetime import datetime,date
 
 
 class Vendor(Base,TimestampMixin,PrimaryKeyMixin):
-    __tablename__ ="vendors"
+    __tablename__ = "vendors"
     name:Mapped[str] = mapped_column(
         String(255),
         nullable=False,  
@@ -33,6 +33,7 @@ class Vendor(Base,TimestampMixin,PrimaryKeyMixin):
         Boolean,
         default=True
     )
+
 
 
 class VendorUserMapping(Base, PrimaryKeyMixin, TimestampMixin):
