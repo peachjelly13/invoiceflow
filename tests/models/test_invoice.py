@@ -31,7 +31,8 @@ def test_invoice():
     assert invoice.reviewed_by == invoice.reviewed_by
     assert invoice.reviewed_at == datetime(2024, 1 , 2)
 
-
+if __name__ == "__main__":
+    test_invoice()
 
 
 
